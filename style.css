@@ -1,0 +1,272 @@
+/*contents
+5-11 reset all
+14-23 color pallette
+27-56 text
+59-138 positioning
+141-185 buttons
+188-247 form and inputs
+250-275 media queries
+*/
+
+/*reset all*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+/*color pallette*/
+:root {
+    --Strong-cyan: hsl(172, 67%, 45%);
+    --Very-dark-cyan: hsl(183, 100%, 15%);
+    --Dark-grayish-cyan: hsl(186, 14%, 43%);
+    --Grayish-cyan: hsl(184, 14%, 56%);
+    --Light-grayish-cyan: hsl(185, 41%, 84%);
+    --Very-light-grayish-cyan: hsl(189, 41%, 97%);
+    --White: hsl(0, 0%, 100%);
+}
+
+
+/* text styling*/
+html {
+  font-size: 24px;  
+}
+
+.display h3 {
+    color: var(--White)
+}
+
+.display p {
+    color: var(--Dark-grayish-cyan)
+}
+
+.title {
+    width: 130px;
+    overflow-wrap: break-word;
+    text-align: justify;
+    font-size: 0.7rem;
+    letter-spacing: 0.5rem;
+}
+
+h1 {
+    color: var(--Very-dark-cyan)
+}
+
+#tip-amount,
+#total-amount {
+    font-size: 2rem;
+    color: var(--Strong-cyan)
+}
+
+/* Global positioning*/
+/*main*/
+body {
+    background-color: var(--Light-grayish-cyan);
+}
+
+main {
+    font-family: 'space mono';
+    font-weight: 700;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+/*whole app*/
+.cal-app {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+.calculator {
+    background-color: var(--White);
+    display: flex;
+    width: 80%;
+    max-width: 1040px;
+    min-width: 750px;
+    gap: 30px;
+    padding: 2%;
+    border-radius: 20px;
+}
+
+/*the two halfs of the app*/
+#inputs {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+.results {
+    width: 50%;
+    background-color: var(--Very-dark-cyan);
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/*element positions*/
+.info {
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.display {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.6rem;   
+    align-items: center;
+}
+
+.field {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.field img {
+    position: absolute;
+    margin: 20px;
+}
+
+/* buttons */
+/* button positioning*/
+.buttons {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+/*button styling*/
+
+button {
+    font-family: 'space mono';
+    font-weight: 700;
+    background-color: var(--Very-dark-cyan);
+    border-radius: 5px;
+    font-size: 1rem;
+    color: var(--White);
+    border: var(--Dark-grayish-cyan);
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: var(--Light-grayish-cyan);
+    color: var(--Very-dark-cyan);
+}
+
+
+.active {
+    background-color: hsl(172, 67%, 45%);
+    color: var(--Very-dark-cyan); 
+}
+/*reset button*/
+.reset {
+    width: 100%;
+    text-align: center;
+    color: var(--Very-dark-cyan);
+    background-color: hsl(183, 98%, 20%);
+    font-size: 1rem;
+    padding: 8px;
+    border: none;
+}
+
+.reset:hover {
+    background-color: var(--Light-grayish-cyan);
+}
+
+/*  Forms  */
+/* label styling*/
+label {
+    font-size: 0.75rem;
+    color: var(--Dark-grayish-cyan);
+}
+
+/*input fields styling*/
+input {
+    text-align: right;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    background-color: var(--Very-light-grayish-cyan);
+    border-radius: 5px;
+    color: var(--Very-dark-cyan);
+    font-family: 'space mono';
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+input:hover {
+    cursor: pointer;
+    outline: 2px solid var(--Light-grayish-cyan);
+}
+
+input:focus {
+    outline: 2px solid var(--Strong-cyan);
+}
+
+
+#custom::placeholder {
+    text-align: center;
+}
+
+input::placeholder {
+    color: var(--Dark-grayish-cyan);
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+}
+
+/*failed validation*/
+#validate {
+    display: flex;
+    justify-content: space-between;
+}
+
+#failed {
+    font-style: normal;
+    display: none;
+}
+
+.invalid {
+    outline: 2px solid red;
+}
+
+
+/* for screen sizes smaller than a standard tablet*/
+@media only screen and (max-width: 750px) {
+    .calculator {
+        width: 80%;
+        max-width: 750px;
+        min-width: 375px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #inputs {
+        width: 90%;
+    }
+
+    .results {
+        width: 90%;
+    }
+
+    .cal-app{
+        gap: 30px;
+    }
+}
